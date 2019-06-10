@@ -13,10 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include  #Allows us to respond to desired request
 
+from django.contrib import admin
+from django.urls import path  #Allows us to respond to desired request
+#from django.conf import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+from .views import (home_page,about_page,contact_page)
 urlpatterns = [
+    path('', home_page),
+    path('about/',about_page),
+    path('contact/',contact_page),
     path('admin/', admin.site.urls),
-    path('',include('front_end.urls')), #fThis willhave our application recognize front_end app
-]
+    #path('polls/', include('polls.urls')),
+    ] + staticfiles_urlpatterns()

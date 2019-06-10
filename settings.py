@@ -26,18 +26,26 @@ SECRET_KEY = 'y9%zo*e*1+4&1#(5-ur!6^j3^_3q_cgx*(o_lbx+sg6d!w)ufn'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+#Tells django it is inside static folder within this project
 
 
+
+#Define list of directories to look for static files
+#STATICFILES_DIRS = [
+ #   os.path.join(BASE_DIR, "static"),
+#'/Users/jsanch75/this_is_a_box/web_scraping_statistics/front_end/static',
+#]
 # Application definition
 
 INSTALLED_APPS = [
+    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'front_end.apps.FrontEndConfig' #Design portion of our website
+    #'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -119,3 +127,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+os.path.join(BASE_DIR,"assets"),
+
+)
